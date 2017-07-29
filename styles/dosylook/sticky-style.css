@@ -1,0 +1,6 @@
+.sticky {
+  position: sticky;
+  top: 1rem;
+  z-index: 5;
+  background: var(--main-bg);
+}

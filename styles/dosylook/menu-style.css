@@ -1,0 +1,57 @@
+/* both vertical and horizontal */
+
+  ul,
+  ul > li {
+    height: auto;
+  }
+
+  ul ul {
+    position: relative;
+    top: initial;
+  }
+
+  ul > li > label {
+    position: relative;
+    margin-bottom: 0.1rem;
+  }
+
+  ul > li > input[type="checkbox"],
+  ul > li > input[type="radio"],
+  ul > li > input[type="radio"] ~ ul,
+  ul > li > input[type="radio"]:not(:checked) ~ label[for$="_close"],
+  ul > li > input[type="radio"]:not([id$="_close"]):checked ~ label:not([for$="_close"]),
+  ul > li > input[type="checkbox"]:not(:checked) ~ ul {
+    display: none;
+  }
+
+  ul > li > input[type="radio"]:not([id$="_close"]):checked ~ ul {
+    display: block;
+  }
+
+  ul > li > input[type="radio"]:not([id$="_close"]):checked ~ label[for$="_close"] {
+    display: inline-block;
+  }
+
+/* horizontal */
+
+  ul.horizontal,
+  ul.horizontal > li {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  ul.horizontal ul.dropdown {
+    position: absolute;
+    top: initial;
+    background: var(--main-bg);
+  }
+
+/* panel and dropdown */
+
+  ul.panel,
+  ul.dropdown {
+    background: var(--main-bg);
+  }
+
+
+

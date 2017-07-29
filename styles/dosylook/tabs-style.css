@@ -1,0 +1,52 @@
+/* tabs */
+
+  nav.tabs {
+    position: relative;
+    display: table;
+    margin: 0 auto;
+  }
+  nav.tabs ul.horizontal.tabs {
+    position: relative;
+  }
+  nav.tabs ul.horizontal.tabs > li {
+    position: initial;
+    outline: none !important;
+  }
+
+  nav.tabs ul.horizontal.tabs > li > label {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: bottom;
+    z-index: 0;
+    outline: none !important;
+    border: 1px solid var(--main-2nd) !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  nav.tabs ul.horizontal.tabs > li > article.tab {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: var(--main-bg);
+    width: 100%;
+    z-index: 1;
+    border-top: 1px solid var(--main-2nd);
+    margin-top: -1.5px;
+    padding: 0.5rem;
+  }
+
+  nav.tabs ul.horizontal.tabs > li > input[type="radio"]:checked ~ article.tab {
+    display: block;
+  }
+
+  nav.tabs ul.horizontal.tabs > li > input[type="radio"]:not(:checked) ~ label {
+    color: var(--main-2nd);
+  }
+
+  nav.tabs ul.horizontal.tabs > li > input[type="radio"]:checked ~ label {
+    display: inline-block;
+    font-weight: bold;
+    z-index: 2;
+  }

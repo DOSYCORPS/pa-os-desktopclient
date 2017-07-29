@@ -3,8 +3,18 @@
   "version": "1.0.0",
   "description": "PA",
   "main": "main.js",
+  "watch": {
+    "start": {
+      "patterns": [
+        "*"
+      ],
+      "extensions": "js,html,css",
+      "quiet": false
+    }
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -24,5 +34,9 @@
     "url": "https://github.com/dosy-corp/pa-os-desktopclient/issues"
   },
   "homepage": "https://github.com/dosy-corp/pa-os-desktopclient#readme",
-  "dependencies": {}
+  "dependencies": {
+    "dosyhil": "^1.0.2",
+    "dosylook": "^1.0.4",
+    "npm-watch": "^0.2.0"
+  }
 }

@@ -1,0 +1,18 @@
+.sidebar {
+  height: 100%;
+  width: 23%;
+  max-width: 350px;
+  min-width: 150px;
+}
+
+.sidebar.left {
+  position: relative;
+  left:0;
+  border-right:1px solid var(--main-border);
+}
+
+.sidebar.right {
+  position: relative;
+  right:0;
+  border-left:1px solid var(--main-border);
+}

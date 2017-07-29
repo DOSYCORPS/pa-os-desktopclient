@@ -1,0 +1,83 @@
+/* text */
+
+  nav fieldset * + *,
+  nav .fieldset * + *,
+  * + * {
+    margin-top: 1.5em;
+    text-rendering: optimizeLegibility;
+    line-height: 1.3;
+  }
+
+  .row *,
+  nav *,
+  .fieldset .p *,
+  .widget *,
+  fieldset p * {
+    margin-top: 0;
+  }
+
+  blockquote,
+  figure,
+  p {
+    text-align: justify;
+    line-height: 1.3;
+  }
+
+  form p,
+  .form .p {
+    text-align: left;
+  }
+
+  p {
+    word-spacing: 0.25em;
+    width: 33em;
+    text-justify: inter-word;
+    text-justify: inter-character;
+    text-align-last: left;
+  }
+
+  p.column2 {
+    text-align: left;
+    column-count: 2;
+    column-gap: 1em;
+  }
+
+  p:first-of-type:first-letter {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-family: Georgia;
+  }
+
+  blockquote + p,
+  figure + p,
+  p + p {
+    margin-top: 0;
+    text-indent: 2em;
+  }
+
+  label, span, a, input {
+    text-indent: 0;
+    min-height: 2rem;
+  }
+
+  button, .button {
+    font-size: 1.25em;
+  }
+
+  button:only-of-type, .button:only-of-type {
+    font-size: 2em;
+  }
+
+  abbr {
+    letter-spacing: 0.25em;
+  }
+
+  .kern {
+    letter-spacing: -0.1em;
+  }
+
+  .negative-leading {
+    font-size: 1.5em;
+    line-height: 0.85;
+    text-indent: -0.5em;
+  }

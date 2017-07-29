@@ -1,0 +1,13 @@
+
+/* colors */
+
+  :root {
+    --main-color: red;
+    --main-hl: blue;
+    --main-pastel: #c0ffee;
+    --main-bg: white;
+    --main-text: black;
+    --main-text-hl: yellow;
+    --main-border: black;
+    --main-2nd: grey;
+  }

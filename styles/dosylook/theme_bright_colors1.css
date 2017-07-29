@@ -1,0 +1,37 @@
+
+  :root {
+    font-size: 11pt;
+    --main-color: red;
+    --main-hl: #FA77ED;
+    --main-pastel: #c0ffee;
+    --main-bg: #ef5;
+    --main-text: #fa77ed;
+    --main-text-hl: yellow;
+    --main-border: #EDD1E5;
+    --main-2nd: #7ABBED;
+  }
+
+
+/* font & theme */
+
+  body {
+    background: var(--main-bg);
+  }
+  *:not(.busy) {
+    font-family: Helvetica;
+  }
+
+/* special colors */
+
+  fieldset > legend, .fieldset > .legend {
+    background-color: var(--main-bg) !important;
+  }
+
+  li > a:hover, li > label:hover {
+    color: var(--main-bg);
+    background: var(--main-hl);
+  }
+
+  button {
+    background-color: var(--main-hl);
+  }

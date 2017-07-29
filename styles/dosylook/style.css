@@ -1,0 +1,211 @@
+/**
+  Complete Dosy Look 
+  Customized By Color 
+**/
+
+@import url('text-style.css');
+
+/* styles */
+
+  body, a, input, textarea, .textarea, [contenteditable] {
+  }
+
+  p {
+    color: var(--main-text);
+  }
+
+  h1 {
+    color: var(--main-text);
+    text-decoration: none;
+  }
+  
+  h1, h2 {
+  }
+
+  a {
+    padding: 0 5px;
+    text-decoration-skip: ink;
+  }
+
+/* input styles */
+
+  form, .form, label, .label {
+    user-select: none;
+    -webkit-user-select: none;
+    display: table;
+    margin: 0 auto;
+  }
+
+  fieldset, .fieldset {
+    border-style: dashed;
+    border: 0;
+    box-shadow: 0px 1px 0 1px white, 0px 2px 0 1px black;
+  }
+
+  fieldset > legend, .fieldset > .legend {
+    color: var(--main-text);
+    border-bottom: 2px dashed silver;
+    border: 0;
+  }
+
+  form label, .form label, .form .label, form .label {
+    max-width: auto;
+  }
+
+  .form .multiline-input,
+  form .multiline-input {
+    display: inline-table;
+    display: inline-flex;
+    max-width: 20ch;
+    max-width: fit-content;
+    flex-direction: column;
+  }
+
+  .multiline-input label,
+  .multiline-input .label {
+    padding-left: 0;
+  }
+
+  .fieldset > .legend {
+    transform: translate(1ch,-100%);
+  }
+
+  .fieldset {
+  }
+
+  fieldset > p, .fieldset > .p {
+    position: relative;
+  }
+
+  .fieldset > .p {
+    padding: 1ch;
+  }
+
+  textarea, .textarea, .input, input, .label, label, button {
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+
+  textarea, .textarea, .input, input {
+    user-select: text;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: var(--main-border);
+  }
+
+  input[type="range"], input[type="file"] {
+    border: none;
+  }
+
+
+  .label, label {
+    display: inline-block;
+    color: var(--main-text);
+    background: var(--main-pastel);
+    padding: 0 5px;
+    max-height: 2rem;
+    line-height: 2 !important;
+    min-width: 15ch;
+  }
+
+  .label:empty, label:empty {
+    background: transparent !important;
+  }
+
+  textarea, .textarea {
+    padding: 5px;
+  }
+
+  button {
+    background: var(--main-hl); 
+  }
+
+/* contenteditable styles & pseudo-forms */
+
+  .fieldset > .legend {
+    position: absolute;
+  }
+
+  div[contenteditable], .textarea, textarea {
+    user-select: text;
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    min-width: 18ch;
+    min-height: 8.5ex;
+    word-break: break-word;
+    max-width: 40ch;
+  }
+
+  div[contenteditable], .textarea {
+    border-width: 0 0 1px 0;
+    border-color: var(--main-border);
+    overflow-y: auto;
+  }
+
+/* states */
+
+  /**
+
+    TODO improve focus states across diverse inputs.
+
+    Test in new FF
+
+  **/
+
+  input:focus, .textarea:focus, textarea:focus, [contenteditable]:focus {
+    outline: none;
+  }
+
+/* lists */
+
+  ol, ul {
+    list-style-position: inside;
+  }
+
+  ol li, ul li {
+    color: var(--main-text);
+  }
+
+  ol {
+    list-style-type: upper-roman;
+  }
+
+  ol ol {
+    list-style-type: upper-alpha;
+  }
+
+  ol ol ol {
+    list-style-type: decimal;
+  }
+
+  ol ol ol ol {
+    list-style-type: lower-alpha;
+  }
+
+  ol ol ol ol ol {
+    list-style-type: lower-roman;
+  }
+
+
+  ul {
+    list-style-type: square;
+  }
+
+  ul ul {
+    list-style-type: circle;
+  }
+
+  ul ul ul {
+    list-style-type: square;
+  }
+
+  ul ul ul ul {
+    list-style-type: circle;
+  }
+
+  ul ul ul ul ul {
+    list-style-type: disc;
+  }
+

@@ -1,0 +1,28 @@
+
+/* drawer */
+
+  ul.vertical.drawer {
+    position: relative;
+  }
+
+  ul.vertical.drawer > li {
+    min-height: 2.1rem;
+  }
+
+  ul.vertical.drawer ul.panel {
+    position: absolute;
+    top: 2rem;
+    top: calc( 2rem + 1px );
+    z-index: 3;
+  }
+
+  ul.vertical.drawer input:not([id$="_close"]):not(:checked) ~ label {
+    position: initial;
+    top: initial;
+  }
+
+  ul.vertical.drawer input:checked ~ label {
+    position: absolute;
+    top: 0;
+    z-index: 4;
+  }

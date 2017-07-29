@@ -1,0 +1,29 @@
+/* game */
+
+  nav.game ul {
+    display: table;
+    max-width: 200px;
+    width: 200px;
+    padding: 0;
+  }
+
+  nav.game ul ul {
+    position: absolute;
+    left: 100%;
+  }
+
+  nav.game li {
+    display: block;
+    width: 100%;
+  }
+
+  nav.game label {
+    width: 100%;
+  }
+
+  nav.game li a {
+    vertical-align: top;
+    display: inline-block;
+  }
+
+

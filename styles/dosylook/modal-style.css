@@ -1,0 +1,24 @@
+/* modal style */
+
+  .modal > input[type="radio"] {
+    display: none;
+  }
+  .modal > input[type="radio"][id$="_close"]:checked ~ label[for$="_close"],
+  .modal > input[type="radio"][id$="_close"]:not(:checked) ~ label:not([for$="_close"]), 
+  .modal > input[type="radio"][id$="_close"]:checked ~ article {
+    display: none;
+  }
+  .modal > input[type="radio"][id$="_close"]:not(:checked) ~ article {
+    display: block;
+  }
+  .modal > article {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: auto;
+    margin: 0;
+    z-index: 7;
+    background-color: var(--main-bg);
+    padding: 1rem;
+  }

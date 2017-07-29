@@ -1,0 +1,34 @@
+span.toggle {
+  position: relative;
+}
+span.toggle *, span.toggle * {
+  vertical-align: top;
+  box-sizing: border-box;
+}
+span.toggle span.option {
+  display: inline-block;
+}
+
+span.toggle span.option > label {
+  color: var(--main-2nd);
+  min-width: 5ch;
+}
+
+span.toggle input[type="radio"].off:checked ~ span.off > label,
+span.toggle input[type="radio"].on:checked ~ span.on > label {
+  color: var(--main-text); 
+  font-weight: bold;
+}
+
+span.toggle > label[for$="_off"],
+span.toggle > label[for$="_off"] {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+}
+
+span.toggle input[type="radio"].off:checked ~ label[for$="_off"],
+span.toggle input[type="radio"] {
+  display: none;
+}
+

@@ -1,0 +1,28 @@
+{
+  "name": "pa-os-desktopclient",
+  "version": "1.0.0",
+  "description": "PA",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosy-corp/pa-os-desktopclient.git"
+  },
+  "keywords": [
+    "pa",
+    "Electron",
+    "dosy"
+  ],
+  "author": "dosy",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "bugs": {
+    "url": "https://github.com/dosy-corp/pa-os-desktopclient/issues"
+  },
+  "homepage": "https://github.com/dosy-corp/pa-os-desktopclient#readme",
+  "dependencies": {}
+}

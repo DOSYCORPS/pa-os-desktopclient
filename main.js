@@ -4,6 +4,11 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+// enable our switches
+
+app.commandLine.appendSwitch('remote-debugging-port','9222');
+
+
 const path = require('path')
 const url = require('url')
 

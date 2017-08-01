@@ -1,0 +1,10 @@
+/* pa custom */
+
+  :root, body {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.workspace > article > main {
+    padding: 0;
+  }

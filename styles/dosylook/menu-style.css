@@ -5,6 +5,10 @@
     height: auto;
   }
 
+  ul.horizontal ul {
+    padding: 0;
+  }
+
   ul ul {
     position: relative;
     top: initial;

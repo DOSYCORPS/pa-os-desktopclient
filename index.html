@@ -2,25 +2,43 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel=stylesheet href=all-style.css>
+    <link rel=stylesheet href=all.css>
+    <style>
+      * {
+        outline: 1px solid lime;
+      }
+    </style>
     <title>PA</title>
   </head>
   <body>
-    <h1>Project Ant</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    <h1>Webview</h1>
-    <webview id=tab0
-      src=https://github.com
-      style="
-        display: flex;
-        width: 640px;
-        height: 480px;
-        border: 3px solid lime;
-      ">
-    </webview>
+    <div class=golden>
+      <div>
+        <nav class=workspace>
+          <article>
+            <main>
+              <webview id=tab0
+                src=https://github.com
+                style="
+                  display: flex;
+                  width: 100%;
+                  height: 100%;
+                ">
+              </webview>
+            </main>
+            <footer>
+              <h1>Project Ant</h1>
+              <!-- All of the Node.js APIs are available in this renderer process. -->
+              We are using Node.js <script>document.write(process.versions.node)</script>,
+              Chromium <script>document.write(process.versions.chrome)</script>,
+              and Electron <script>document.write(process.versions.electron)</script>.
+            </footer>
+          </article>
+          <aside>
+            <h1>Main Tools</h1>
+          </aside>
+        </nav>
+      </div>
+    </div>
   </body>
   <script>
     // You can also require other files to run in this process

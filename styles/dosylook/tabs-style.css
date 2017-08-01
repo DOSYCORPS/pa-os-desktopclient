@@ -20,8 +20,8 @@
     vertical-align: bottom;
     z-index: 0;
     outline: none !important;
-    border: 1px solid var(--main-2nd) !important;
-    border-bottom: none !important;
+    border: 1px solid var(--main-2nd);
+    border-bottom: none;
     margin-bottom: 0 !important;
   }
 

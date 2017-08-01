@@ -1,0 +1,19 @@
+
+/* steps */
+
+  nav.tabs.steps li > label {
+    border: none !important;
+  }
+
+  nav.tabs.steps ul.tabs.steps li > article.tab.step {
+    margin-top: 1rem;
+    border: 1px solid var(--main-2nd);
+  }
+
+  nav.tabs.steps ul.tabs.steps li > article.tab.step label.next {
+    text-decoration: underline;
+  }
+
+
+
+

@@ -1,0 +1,62 @@
+/* panels */
+
+  /* golden ratio */
+
+    .golden {
+      width: 100%;
+      padding-bottom: 61.8%;
+      position: relative;
+    }
+
+    .golden * {
+      margin: 0;
+    }
+
+    .golden > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+  /* workspace layout */
+
+    nav.workspace {
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    nav.workspace * {
+      box-sizing: border-box;
+    }
+
+    nav.workspace > aside,
+    nav.workspace > article > main,
+    nav.workspace > article > footer {
+      outline: 1px solid black;
+      padding: 0.5rem;
+    }
+
+    nav.workspace > article {
+      width: 61.8%;
+      height: 100%;
+      display: inline-flex;
+      flex-flow: column;
+    }
+
+    nav.workspace > article > main {
+      width: 100%;
+      height: 61.8%;
+    }
+
+    nav.workspace > article > footer {
+      flex-grow: 1;
+    }
+
+    nav.workspace > aside {
+      flex-grow: 1;
+    }
+

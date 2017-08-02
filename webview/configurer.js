@@ -13,14 +13,14 @@
     wv.addEventListener('dom-ready', () => {
       const wc = wv.getWebContents();
       wc.setUserAgent( CURRENT_UA );
-      wc.loadURL( start_url );
+      wc.loadURL( first_url );
       Object.assign( self, { wv, wc } );
     }, { once: true } )
 
     wv.src="data:text/html,<div>Connecting to the internet...";
 
     if ( navigator.onLine ) {
-      wv.src+=`<div>Connected</div><div>Navigating to ${start_url}...</div>`;
+      wv.src+=`<div>Connected</div><div>Navigating to ${first_url}...</div>`;
     } else {
       wv.src+=`<div>Unable to connect to the internet.</div>`;
     }

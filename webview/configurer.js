@@ -2,12 +2,12 @@
 {
   const CURRENT_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36';
   const WVC = {
-    setup
+    setup_webview
   };
 
   module.exports = WVC;
 
-  function setup( start_url = 'about:blank' ) {
+  function setup_webview({ first_url: first_url = 'about:blank' } = {}) {
     const wv = document.querySelector('webview');
 
     wv.addEventListener('dom-ready', () => {
@@ -25,5 +25,4 @@
       wv.src+=`<div>Unable to connect to the internet.</div>`;
     }
   }
-
 }

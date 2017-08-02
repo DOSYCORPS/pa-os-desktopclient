@@ -18,6 +18,7 @@
           <article>
             <main>
               <webview id=tab0
+                preload="./webview/guest_context/build_client.js"
                 style="
                   display: flex;
                   width: 100%;
@@ -42,8 +43,8 @@
     </div>
   </body>
   <script>
-    const webview_controller = require('./webview_controller.js');
-    webview_controller.setup('https://github.com');
+    const webview_configurer = require('./webview/configurer.js');
+    webview_configurer.setup_webview({ first_url : 'https://github.com'});
   </script>
   <script>
     // You can also require other files to run in this process

@@ -24,5 +24,11 @@
     } else {
       wv.src+=`<div>Unable to connect to the internet.</div>`;
     }
+    setup_split_dct();
+  }
+
+  function setup_split_dct() {
+    const dct = require('dosycanvasdomtracker');
+    dct.start_tracking({guest:'#tab0'});
   }
 }

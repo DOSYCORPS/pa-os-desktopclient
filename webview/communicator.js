@@ -10,11 +10,6 @@
 
   function setup_webview() {
     self.addEventListener('load', install_ipc_listener );
-    test_display();
-  }
-
-  function test_display() {
-    self.addEventListener('message', y => console.log(y) );
   }
 
   function install_ipc_listener() {

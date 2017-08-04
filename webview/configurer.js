@@ -29,6 +29,6 @@
 
   function setup_split_dct() {
     const dct = require('dosycanvasdomtracker');
-    dct.start_tracking({guest:'#tab0'});
+    dct.start_tracking({absolute: true, guest:'#tab0'});
   }
 }

@@ -6,5 +6,6 @@
   }
 
   nav.workspace > article > main {
+    position: relative;
     padding: 0;
   }

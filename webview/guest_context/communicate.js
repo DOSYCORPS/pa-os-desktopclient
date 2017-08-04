@@ -6,9 +6,11 @@
   /* and we hide it from the guest page */
 
   const {ipcRenderer} = require('electron');
-  const v8Util = process.atomBinding('v8_util');
+
+  module.exports = { install };
 
   function install() {
+    const v8Util = process.atomBinding('v8_util');
     v8Util.setHiddenValue(self, "sendMessage", sendMessage);
   }
 

@@ -1,18 +1,15 @@
 "use strict";
 {
   const capture = require('./capture.js');
-  const instrument = require('./instrument.js');
   const communicate = require('./communicate.js');
+  const instrument = require('./instrument.js');
 
   const build = {
     capture, instrument, communicate
   }
 
-  module.exports = build;
+  communicate.install();
+  instrument.install();
 
-  Object.assign( self, {
-    build 
-  });
-  
-  console.log("Build client", build);
+  module.exports = build;
 }

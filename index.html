@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel=stylesheet href=all.css>
     <link rel=stylesheet href=custom.css>
     <style>
@@ -48,12 +49,5 @@
     webview_configurer.setup_webview({ first_url : 'https://github.com'});
     const webview_communicator = require('./webview/communicator.js');
     webview_communicator.setup_webview();
-  </script>
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-    const hil = require('dosyhil');
-    console.log( hil );
-    Object.assign( self, { hil } );
   </script>
 </html>

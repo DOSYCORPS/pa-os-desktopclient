@@ -2,8 +2,10 @@
 {
   const capture = require('./capture.js');
   const instrument = require('./instrument.js');
+  const communicate = require('./communicate.js');
+
   const build = {
-    capture, instrument
+    capture, instrument, communicate
   }
 
   module.exports = build;
@@ -12,5 +14,5 @@
     build 
   });
   
-  console.log("Build client", capture, instrument);
+  console.log("Build client", build);
 }

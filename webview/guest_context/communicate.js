@@ -12,9 +12,14 @@
   function install() {
     const v8Util = process.atomBinding('v8_util');
     v8Util.setHiddenValue(self, "sendMessage", sendMessage);
+    v8Util.setHiddenValue(self, "onMessage", onMessage);
   }
 
   function sendMessage( ...args ) {
     ipcRenderer.sendToHost('ipc-message', ...args );
+  }
+
+  function onMessage( listener ) {
+    ipcRenderer.on('ipc-message', listener );
   }
 }

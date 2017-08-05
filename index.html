@@ -45,9 +45,6 @@
     </div>
   </body>
   <script>
-    const webview_configurer = require('./webview/configurer.js');
-    webview_configurer.setup_webview({ first_url : 'https://github.com'});
-    const webview_communicator = require('./webview/communicator.js');
-    webview_communicator.setup_webview();
+    require('./webview/setup.js').install();
   </script>
 </html>

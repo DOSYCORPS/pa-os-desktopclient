@@ -38,6 +38,7 @@
     "dosycanvasdomtracker": "^1.0.2",
     "dosyhil": "^1.0.2",
     "dosylook": "^1.0.4",
-    "npm-watch": "^0.2.0"
+    "npm-watch": "^0.2.0",
+    "selector-generalization": "^1.0.1"
   }
 }

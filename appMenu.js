@@ -9,6 +9,7 @@
     const currentMenu = Menu.getApplicationMenu();
     
     currentMenu.insert(currentMenu.items.length-2, new AccountMenu());
+    currentMenu.insert(currentMenu.items.length-2, new JourneyMenu());
     
     const fileMenu = currentMenu.items[0];
     fileMenu.submenu.append( new ExportMenu() );
@@ -48,11 +49,45 @@
         click: () => console.log("action: chromeless export")
       },
       {
+        label:"Export to Puppeteer script...",
+        click: () => console.log("action: puppeteer export")
+      },
+      {
         label:"Export to JSON...",
         click: () => console.log("action: JSON export")
       },
     ];
     opts.click = () => console.log("Export menu clicked");
+    return new MenuItem(opts);
+  }
+
+  function TestMenu( opts = {} ) {
+    opts.label = opts.label || 'Test...';
+    opts.submenu = [
+      {
+        label:"Test in NightmareJS",
+        click: () => console.log("action: nightmarejs test")
+      },
+      {
+        label:"Test in Chromeless",
+        click: () => console.log("action: chromeless test")
+      },
+      {
+        label:"Test in Puppeteer",
+        click: () => console.log("action: puppeteer test")
+      }
+    ];
+    opts.click = () => console.log("Test menu clicked");
+    return new MenuItem(opts);
+  }
+
+  function JourneyMenu( opts = {} ) {
+    opts.label = opts.label || 'Journey';
+    opts.submenu = [
+      new TestMenu(),
+      new ExportMenu() 
+    ];
+    opts.click = () => console.log("Journey menu clicked");
     return new MenuItem(opts);
   }
 }

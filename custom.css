@@ -9,3 +9,23 @@
     position: relative;
     padding: 0;
   }
+
+  * {
+    outline: 1px solid lime;
+  }
+
+/* custom test */
+
+  nav.tabs,
+  nav.tabs > ul,
+  nav.tabs article.tab,
+  nav.tabs article.tab form,
+  nav.tabs article.tab form {
+    margin: 0;
+    width: 100%;
+  }
+
+  nav.tabs article.tab p {
+    width: 100%;
+  }
+

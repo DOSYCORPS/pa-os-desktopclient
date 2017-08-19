@@ -28,7 +28,7 @@
   "author": "dosy",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "^1.6.2"
   },
   "bugs": {
     "url": "https://github.com/dosy-corp/pa-os-desktopclient/issues"

@@ -21,7 +21,9 @@ function createWindow () {
   // Create the browser window.
   // TODO: keep resizable to false while we develop the various app components and interface
   // later we deal with interface workability under window resize
-  mainWindow = new BrowserWindow({width: 1100, height: 680, useContentSize: true, resizable: false});
+  const {height} = electron.screen.getPrimaryDisplay().size;
+
+  mainWindow = new BrowserWindow({x: 50, y: 50, width: 1100, height: 680, useContentSize: true, resizable: false});
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -31,7 +33,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

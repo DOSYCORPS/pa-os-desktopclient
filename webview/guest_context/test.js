@@ -14,7 +14,7 @@
     const onMessage = v8Util.getHiddenValue(self, "onMessage");
     sendMessage("cris", "is", 1000, { awesome: true } );
     onMessage( (...args) => {
-      console.log("Incoming message from host", ...args );
+      //console.log("Incoming message from host", ...args );
       self.inbox.push( args );
     });
   }

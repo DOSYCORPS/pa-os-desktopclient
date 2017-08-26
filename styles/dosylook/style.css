@@ -44,7 +44,7 @@
 
   fieldset > legend, .fieldset > .legend {
     color: var(--main-text);
-    border-bottom: 2px dashed silver;
+    border-bottom: 3px dashed silver;
     border: 0;
   }
 
@@ -87,17 +87,17 @@
     box-sizing: border-box;
   }
 
-  textarea, .textarea, .input, input {
+  textarea, .textarea, .input, input, select {
+    padding: 2px;
     user-select: text;
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 1px 1px 3px 1px;
     border-color: var(--main-border);
   }
 
-  input[type="range"], input[type="file"] {
+  input[type="range"], input[type="file"], input[type="color"] {
     border: none;
   }
-
 
   .label, label {
     display: inline-block;
@@ -139,23 +139,9 @@
   }
 
   div[contenteditable], .textarea {
-    border-width: 0 0 1px 0;
+    border-width: 1px 1px 3px 1px;
     border-color: var(--main-border);
     overflow-y: auto;
-  }
-
-/* states */
-
-  /**
-
-    TODO improve focus states across diverse inputs.
-
-    Test in new FF
-
-  **/
-
-  input:focus, .textarea:focus, textarea:focus, [contenteditable]:focus {
-    outline: none;
   }
 
 /* lists */

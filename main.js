@@ -42,6 +42,8 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+  const appMenu = require('./appMenu.js');
+  appMenu.install();
 }
 
 // This method will be called when Electron has finished

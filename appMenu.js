@@ -1,7 +1,6 @@
 "use strict";
 {
-  const {remote} = require('electron');
-  const {Menu,MenuItem} = remote;
+  const {Menu,MenuItem} = require('electron');
 
   module.exports = { install };
 

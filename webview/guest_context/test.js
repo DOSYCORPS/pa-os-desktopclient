@@ -12,9 +12,9 @@
     self.inbox = [];
     const sendMessage = v8Util.getHiddenValue(self, "sendMessage");
     const onMessage = v8Util.getHiddenValue(self, "onMessage");
-    sendMessage("cris", "is", 1000, { awesome: true } );
+    sendMessage({ping:true});
     onMessage( (...args) => {
-      //console.log("Incoming message from host", ...args );
+      console.log("Message in", ...args );
       self.inbox.push( args );
     });
   }

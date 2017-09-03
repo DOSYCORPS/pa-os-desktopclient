@@ -7,8 +7,11 @@
 
   module.exports = WVC;
 
-  function install({ first_url: first_url = 'about:blank' } = {}) {
-    const wv = document.querySelector('webview');
+  function install(sel, { first_url: first_url = 'about:blank' } = {}) {
+    if ( ! sel ) {
+      throw new TypeError("Need to supply webview selector");
+    }
+    const wv = document.querySelector(sel);
 
     wv.addEventListener('dom-ready', () => {
       const wc = wv.getWebContents();

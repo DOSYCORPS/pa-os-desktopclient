@@ -6,10 +6,10 @@
 
   module.exports = { install };
 
-  function install() {
+  function install(sel) {
     console.log("Installing...");
-    webview_configurer.install({ first_url : 'https://github.com'});
-    webview_communicator.install();
+    webview_configurer.install(sel, { first_url : 'https://github.com'});
+    webview_communicator.install(sel);
     test.install();
     addEventListener('load', setup);
   }
@@ -17,7 +17,6 @@
   function setup() {
     console.log("Setting up...");
     setTimeout( () => run(), 0 );
-
   }
 
   function run() {

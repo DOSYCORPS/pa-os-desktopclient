@@ -31,11 +31,11 @@
               <canvas id=overlay0></canvas>
             </main>
             <footer>
-              <webview nodeintegration src=http://localhost:8080/search></webview>
+              <webview id=search0 nodeintegration src=http://localhost:8080/search></webview>
             </footer>
           </article>
           <aside>
-            <webview nodeintegration src=http://localhost:8080/build></webview>
+            <webview id=build0 nodeintegration src=http://localhost:8080/build></webview>
           </aside>
         </nav>
       </div>
@@ -43,7 +43,11 @@
   </body>
   <script>
     require('./computation/setup.js').install();
-    require('./webview/setup.js').install();
     require('./renderer.js').install();
+    const wv_setup = require('./webview/setup.js');
+    wv_setup.install('#tab0');
+    const wv_comm_setup = require('./webview/communicator.js');
+    const sm = wv_comm_setup.install('#build0');
+    self.addEventListener('load', () => sm({hello:true}) );
   </script>
 </html>

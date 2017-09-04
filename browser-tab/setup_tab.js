@@ -4,9 +4,9 @@
 
   module.exports = { install };
 
-  function install(sel) {
+  function install(sel, first_url) {
     console.log("Installing...");
-    webview_configurer.install(sel, { first_url : 'https://github.com'});
+    webview_configurer.install(sel, first_url);
     addEventListener('load', setup);
   }
 

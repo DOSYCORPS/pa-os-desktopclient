@@ -21,7 +21,7 @@
           <article>
             <main>
               <webview id=tab0
-                preload="./webview/guest_context/build_client.js"
+                preload="./browser-tab/guest_context/setup.js"
                 style="
                   display: flex;
                   width: 100%;
@@ -31,11 +31,15 @@
               <canvas id=overlay0></canvas>
             </main>
             <footer>
-              <webview id=search0 nodeintegration src=http://localhost:8080/search></webview>
+              <webview id=search0 nodeintegration 
+                preload="./webview-component/search.js"
+              ></webview>
             </footer>
           </article>
           <aside>
-            <webview id=build0 nodeintegration src=http://localhost:8080/build></webview>
+            <webview id=build0 nodeintegration 
+              preload="./webview-component/build.js"
+            ></webview>
           </aside>
         </nav>
       </div>
@@ -44,10 +48,8 @@
   <script>
     require('./computation/setup.js').install();
     require('./renderer.js').install();
-    const wv_setup = require('./webview/setup.js');
-    wv_setup.install('#tab0');
-    const wv_comm_setup = require('./webview/communicator.js');
-    const sm = wv_comm_setup.install('#build0');
-    self.addEventListener('load', () => sm({hello:true}) );
+    require('./browser-tab/setup_tab.js').install('#tab0', 'https://github.com');
+    require('./webview-component/setup.js').install('#search0','http://localhost:8080/search');
+    require('./webview-component/setup.js').install('#build0', 'http://localhost:8080/build');
   </script>
 </html>

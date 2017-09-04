@@ -44,6 +44,8 @@ function createWindow () {
   })
   const appMenu = require('./appMenu.js');
   appMenu.install();
+  const comms = require('./comms.js');
+  comms.install();
 }
 
 // This method will be called when Electron has finished

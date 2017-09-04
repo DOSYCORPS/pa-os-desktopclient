@@ -1,16 +1,12 @@
 "use strict";
 {
   const webview_configurer = require('./configurer.js');
-  const webview_communicator = require('./communicator.js');
-  const test = require('./test.js');
 
   module.exports = { install };
 
-  function install(sel) {
+  function install(sel, first_url) {
     console.log("Installing...");
-    webview_configurer.install(sel, { first_url : 'https://github.com'});
-    webview_communicator.install(sel);
-    test.install();
+    webview_configurer.install(sel, first_url);
     addEventListener('load', setup);
   }
 

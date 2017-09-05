@@ -26,16 +26,16 @@
           canonicalSel : sg.get_canonical_sel( e.target )
         };
         comms.send('build', message);
-        dct.track(message.canonicalSel);
+        dct.track(message.canonicalSel, 'rgba(0,200,50,0.5)');
       }
     });
     comms.listen( (e,m) => {
       console.log(e,m);
       if ( m.trackThis ) {
         if ( m.trackAll ) {
-          dct.track_all(m.canonicalSel);
+          dct.track_all(m.canonicalSel, 'rgba(200,0,100,0.5)');
         } else {
-          dct.track(m.canonicalSel);
+          dct.track(m.canonicalSel, 'rgba(0,200,50,0.5)');
         }
       } else if ( m.untrackThis ) {
         dct.untrack(m.canonicalSel); 

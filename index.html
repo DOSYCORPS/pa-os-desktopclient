@@ -51,5 +51,9 @@
     require('./browser-tab/setup_tab.js').install('#tab0', 'https://github.com');
     require('./webview-component/setup.js').install('#search0','http://localhost:8080/search');
     require('./webview-component/setup.js').install('#build0', 'http://localhost:8080/build');
+    const comms = require('./comms.js');
+    const api = comms.install();
+    api.nameSelf('workspace');
+    api.listen( (e,m) => console.log(e,m) );
   </script>
 </html>

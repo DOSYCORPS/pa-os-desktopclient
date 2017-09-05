@@ -14,11 +14,13 @@
         }
         e.preventDefault();
         console.log("Shift pressed so preventing default and tracking."); 
-        comms.send('build',{
+        const message = {
           trackThis : true,
           type,
           canonicalSel : sg.get_canonical_sel( e.target )
-        });
+        };
+        comms.send('build', message);
+        comms.send('workspace', message);
       }
     });
   }

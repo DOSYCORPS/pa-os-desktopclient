@@ -19,7 +19,7 @@
       <div>
         <nav class=workspace>
           <article>
-            <main>
+            <main style=height:100%;>
               <webview id=tab0
                 preload="./browser-tab/guest_context/setup.js"
                 style="
@@ -30,11 +30,13 @@
               </webview>
               <canvas id=overlay0></canvas>
             </main>
+            <!--
             <footer>
               <webview id=search0 nodeintegration 
                 preload="./webview-component/search.js"
               ></webview>
             </footer>
+            !-->
           </article>
           <aside>
             <webview id=build0 nodeintegration 
@@ -49,7 +51,7 @@
     require('./computation/setup.js').install();
     require('./renderer.js').install();
     require('./browser-tab/setup_tab.js').install('#tab0', 'https://github.com');
-    require('./webview-component/setup.js').install('#search0','http://localhost:8080/search');
+    //require('./webview-component/setup.js').install('#search0','http://localhost:8080/search');
     require('./webview-component/setup.js').install('#build0', 'http://localhost:8080/build');
     require('./tracking.js').install('#tab0');
   </script>

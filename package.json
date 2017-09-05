@@ -41,6 +41,6 @@
     "dosylook": "^1.0.4",
     "npm-watch": "^0.2.0",
     "request-promise": "^4.2.1",
-    "selector-generalization": "^1.1.0"
+    "selector-generalization": "^1.1.1"
   }
 }

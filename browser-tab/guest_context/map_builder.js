@@ -11,7 +11,7 @@
       comms.send('workspace', msg);
     };
     dct.guest(true, { sendMessage });
-    self.dct = dct;
+    
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {
         let type = 'positive';
@@ -37,7 +37,6 @@
         } else {
           dct.track(m.canonicalSel);
         }
-
       }
     });
   }

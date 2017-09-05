@@ -2,9 +2,13 @@
 {
   const comms = require('../comms.js');
 
+  let loaded = false;
+
   self.addEventListener('load', install);
+  self.addEventListener('domcontentloaded', install);
 
   function install() {
+    if ( loaded ) return;
     console.log("Loading...");
     const api = comms.install();
     Object.assign( self, { comms: api } );
@@ -30,6 +34,16 @@
       localStorage.setItem('q', '[]');
     }
 
+    install_delete_handler();
+
+    function install_delete_handler() {
+      document.addEventListener('click', (e) => {
+        if ( e.target && e.target.matches('button[name$="_delete"]') ) {
+          do_delete(e); 
+        }
+      }
+    }
+
     function generalize() {
       const generalize_btn = document.querySelector('#generalize');
       console.log(generalize_btn);
@@ -45,6 +59,20 @@
         }, 50 );
       }, 50 );
     }
+
+    function do_delete(e) {
+      const sel = e.target.parent.querySelector('input[type="text"]').value;
+      const gsel = document.querySelector('#generalized').value;
+      self.comms.send('browser-tab-guest', {
+        untrackThis: true,
+        canonicalSel: sel,
+        generalizedSel: gsel
+      });
+      const queue = JSON.parse(localStorage.getItem('q'));
+      queue.push({task: 'generalize'});
+      localStorage.setItem('q',JSON.stringify(queue));
+    }
+    loaded = true;
   }
 
   function handle( event, msg ) {

@@ -37,7 +37,9 @@
         } else {
           dct.track(m.canonicalSel);
         }
-
+      } else if ( m.untrackThis ) {
+        dct.untrack(m.canonicalSel); 
+        dct.untrack_all(m.generalizedSel);
       }
     });
   }

@@ -22,6 +22,7 @@
       localStorage.setItem('q','[]');
     }
     if ( !!queue ) {
+      console.log(JSON.stringify(queue));
       while(queue.length) {
         const {task} = queue.shift();
         switch(task) {
@@ -30,9 +31,8 @@
             break;
         }
       }
-    } else {
-      localStorage.setItem('q', '[]');
     }
+    localStorage.setItem('q', '[]');
 
     install_delete_handler();
 
@@ -41,7 +41,7 @@
         if ( e.target && e.target.matches('button[name$="_delete"]') ) {
           do_delete(e); 
         }
-      }
+      });
     }
 
     function generalize() {
@@ -61,8 +61,9 @@
     }
 
     function do_delete(e) {
-      const sel = e.target.parent.querySelector('input[type="text"]').value;
+      const sel = e.target.parentNode.querySelector('input[type="text"]').value;
       const gsel = document.querySelector('#generalized').value;
+      console.log(sel,gsel);
       self.comms.send('browser-tab-guest', {
         untrackThis: true,
         canonicalSel: sel,

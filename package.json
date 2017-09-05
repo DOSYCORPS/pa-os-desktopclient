@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/dosy-corp/pa-os-desktopclient#readme",
   "dependencies": {
-    "dosycanvasdomtracker": "^1.1.6",
+    "dosycanvasdomtracker": "^1.1.7",
     "dosyhil": "^1.0.2",
     "dosylogo": "^1.0.2",
     "dosylook": "^1.0.4",

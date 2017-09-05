@@ -53,7 +53,11 @@
     require('./webview-component/setup.js').install('#build0', 'http://localhost:8080/build');
     const comms = require('./comms.js');
     const api = comms.install();
+    const dct = require('dosycanvasdomtracker');
     api.nameSelf('workspace');
-    api.listen( (e,m) => console.log(e,m) );
+    api.listen( (e,m) => {
+      self.postMessage(m,'*');
+    });
+    dct.start_tracking({absolute: true, guest:'#tab0'});
   </script>
 </html>

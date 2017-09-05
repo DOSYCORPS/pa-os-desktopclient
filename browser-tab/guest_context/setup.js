@@ -6,8 +6,9 @@
   self.addEventListener('load', install);
 
   function install() {
-    map_builder.install();
     const api = comms.install();
+    api.nameSelf('browser-tab-guest');
     Object.assign( self, { comms : api } );
+    map_builder.install();
   }
 }

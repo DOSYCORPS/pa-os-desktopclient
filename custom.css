@@ -5,10 +5,27 @@
     margin: 0;
   }
 
+  /* override since our window is not necessarily golden ratio dimensions */
+
+  .golden {
+    padding-bottom: 0;
+    max-height: 100vh;
+    height: 100vh;
+    position: relative;
+  }
+
   nav.workspace > article > main {
+    max-height: 100%;
+    overflow-y: auto;
     position: relative;
     padding: 0;
   }
+
+  nav.workspace > aside {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
 
   /*
   * {

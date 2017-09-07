@@ -14,11 +14,15 @@
     
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {
+        e.preventDefault();
+        const textSel = self.getSelection();
+        if ( !!textSel ) {
+          textSel.removeAllRanges();
+        }
         let type = 'positive';
         if ( e.alt || e.altKey ) {
           type = 'negative';
         }
-        e.preventDefault();
         console.log("Shift pressed so preventing default and tracking."); 
         const message = {
           trackThis : true,
@@ -41,7 +45,9 @@
           if ( m.type == 'negative' ) {
             color = 'rgba(200,0,100,0.5)';
           }
-          dct.track_all(m.canonicalSel, {color});
+          if ( m.canonicalSel ) {
+            dct.track_all(m.canonicalSel, {color});
+          }
         } else {
           color = 'rgba(0,200,0,0.5)';
           if ( m.type == 'negative' ) {

@@ -11,10 +11,20 @@
   const menu = new Menu();
   const menuItem = new MenuItem({
     label: 'Inspect Element',
-    click: () => {
-      remote.getCurrentWindow().webContents.openDevTools();
-      remote.getCurrentWindow().devToolsWebContents.focus();
-      remote.getCurrentWindow().inspectElement(rightClickPosition.x, rightClickPosition.y)
+    click: (e,wc) => {
+      if ( !!wvtarget ) {
+        wc = wvtarget;
+      }
+      if ( wc.isDevToolsOpened() ) {
+        wc.devToolsWebContents.focus();
+        wc.inspectElement(rightClickPosition.x, rightClickPosition.y)
+      } else {
+        wc.once('devtools-opened', () => {
+          wc.devToolsWebContents.focus();
+          wc.inspectElement(rightClickPosition.x, rightClickPosition.y)
+        });
+        wc.openDevTools();
+      }
     }
   });
 
@@ -22,6 +32,7 @@
     install
   };
 
+  let wvtarget = null;
   let rightClickPosition = null;
 
   menu.append(menuItem);
@@ -31,7 +42,16 @@
   function install() {
     window.addEventListener('contextmenu', e => {
       e.preventDefault();
-      rightClickPosition = {x: e.x, y: e.y};
+      let targetX = 0, targetY = 0;
+      if ( e.target.matches && e.target.matches('webview') ) {
+        wvtarget = e.target.getWebContents();
+        const rect = e.target.getBoundingClientRect();
+        targetX = Math.round(rect.left);
+        targetY = Math.round(rect.top);
+      } else {
+        wvtarget = null;
+      }
+      rightClickPosition = {x: e.x - targetX, y: e.y - targetY};
       menu.popup(remote.getCurrentWindow());
     }, false);
   }

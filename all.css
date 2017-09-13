@@ -1,5 +1,3 @@
-@import url('styles/dosylook/default_theme.css');
-@import url('styles/dosylook/theme_plain_grey1.css');
 @import url('styles/dosylook/style.css');
 @import url('styles/dosylook/menu-style.css');
 @import url('styles/dosylook/busy-style.css');
@@ -14,3 +12,4 @@
 @import url('styles/dosylook/panels-style.css');
 @import url('styles/dosylook/state-style.css');
 @import url('styles/dosylook/list-mutate-style.css');
+@import url('styles/dosylook/theme_bloomberg_term.css');

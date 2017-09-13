@@ -1,0 +1,52 @@
+
+  :root {
+    font-size: 11pt;
+    --main-color: lime;
+    --main-hl: white;
+    --main-pastel: red;
+    --main-bg: black;
+    --main-text: orange;
+    --main-text-hl: lime;
+    --main-border: blue;
+    --main-2nd: purple;
+    --main-neutral: grey;
+  }
+
+
+/* font & theme */
+
+  body {
+    background: var(--main-bg);
+  }
+  *:not(.busy) {
+    font-family: monospace;
+  }
+
+/* special colors */
+
+  fieldset {
+    box-shadow: 0 1px 0 1px var(--main-border), 0 2px 0 2px var(--main-2nd);
+    border-color: var(--main-border);
+  }
+  fieldset > legend, .fieldset > .legend {
+    background-color: var(--main-bg) !important;
+  }
+
+  li > a:hover, li > label:hover {
+    color: var(--main-bg);
+    background: var(--main-hl);
+  }
+
+  button {
+    background-color: var(--main-hl);
+  }
+  
+  input, select, option, textarea {
+    color: var(--main-hl);
+    background-color: var(--main-neutral);
+  }
+
+  ::placeholder {
+    color: var(--main-2nd);
+  }
+

@@ -38,7 +38,7 @@
     "dosycanvasdomtracker": "^1.2.2",
     "dosyhil": "^1.0.3",
     "dosylogo": "^1.0.2",
-    "dosylook": "^1.0.4",
+    "dosylook": "^1.1.0",
     "npm-watch": "^0.2.0",
     "request-promise": "^4.2.1",
     "selector-generalization": "^1.1.6"

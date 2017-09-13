@@ -1,0 +1,88 @@
+/* pa custom */
+
+  :root, body {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.workspace > article > main {
+    position: relative;
+    padding: 0;
+  }
+
+  /*
+  * {
+    outline: 1px solid lime;
+  }
+  */
+
+/* custom test */
+
+  nav.tabs,
+  nav.tabs > ul,
+  nav.tabs article.tab,
+  nav.tabs article.tab form,
+  nav.tabs article.tab form {
+    margin: 0;
+    width: 100%;
+  }
+
+  nav.tabs ul.horizontal.tabs {
+    padding-left:0;
+  }
+
+  nav.tabs article.tab {
+    box-sizing: border-box;
+  }
+
+  nav.tabs article.tab p {
+    width: 100%;
+  }
+
+  nav.workspace article footer {
+    flex-basis: 100%;
+  }
+
+
+/* components webview */
+
+  webview {
+    border: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+
+/* button */
+
+  form fieldset button {
+    background: none;
+    font-size: 1rem !important;
+  }
+
+/* custom business logic styles */
+
+  /* set building */
+
+    .include, .exclude {
+      color: var(--main-bg);
+    }
+    .include {
+      background: rgb( 0, 255, 50 );
+    }
+
+    .exclude {
+      background: rgb( 200, 0, 100 );
+    }
+
+/* layout */
+  details summary:focus,
+  details[open] summary {
+    outline: none;
+  }
+
+  details {
+    margin-top: 0;
+  }
+
+  

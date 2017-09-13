@@ -101,7 +101,7 @@
 
   .label, label {
     display: inline-block;
-    color: var(--main-text);
+    color: var(--main-hl);
     background: var(--main-pastel);
     padding: 0 5px;
     max-height: 2rem;

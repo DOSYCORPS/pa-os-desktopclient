@@ -24,6 +24,7 @@
   nav.workspace > aside {
     max-height: 100%;
     overflow-y: auto;
+    padding: 0;
   }
 
 

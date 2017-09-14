@@ -21,6 +21,10 @@
           <article>
             <main style=height:100%;>
               <webview id=tab0
+                webpreferences="
+                  contextIsolation=yes,
+                  webviewTag=no
+                "
                 preload="./browser-tab/guest_context/setup.js"
                 style="
                   display: flex;

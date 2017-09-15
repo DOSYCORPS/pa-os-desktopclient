@@ -30,6 +30,7 @@
   function install_select_on_click(dct) {
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {
+        // track instead of clicking
         e.preventDefault();
         const textSel = self.getSelection();
         if ( !!textSel ) {
@@ -39,7 +40,6 @@
         if ( e.alt || e.altKey ) {
           type = 'negative';
         }
-        console.log("Shift pressed so preventing default and tracking."); 
         const message = {
           trackThis : true,
           type,

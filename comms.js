@@ -78,7 +78,7 @@
         const {sender:context} = event;
         const {name:requestedName} = msg;
         if ( contexts.has(requestedName) ) {
-          console.warn(`Re-registering existing name ${requestedName}` );
+          //console.warn(`Re-registering existing name ${requestedName}` );
         } 
         if ( requestedName == NAME ) {
           throw new TypeError( `Only main process can use the name 'main'` );

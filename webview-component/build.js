@@ -22,7 +22,6 @@
       localStorage.setItem('q','[]');
     }
     if ( !!queue ) {
-      console.log(JSON.stringify(queue));
       while(queue.length) {
         const {task} = queue.shift();
         switch(task) {
@@ -46,7 +45,6 @@
 
     function generalize() {
       const generalize_btn = document.querySelector('#generalize');
-      console.log(generalize_btn);
       setTimeout( () => {
         generalize_btn.click();
         setTimeout( () => {
@@ -63,7 +61,6 @@
     function do_delete(e) {
       const sel = e.target.parentNode.querySelector('input[type="text"]').value;
       const gsel = document.querySelector('#generalized').value;
-      console.log(sel,gsel);
       self.comms.send('browser-tab-guest', {
         untrackThis: true,
         canonicalSel: sel,

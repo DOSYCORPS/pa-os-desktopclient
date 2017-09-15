@@ -47,7 +47,7 @@
   module.exports = dev_tools_context_menu;
 
   function install() {
-    window.addEventListener('contextmenu', e => {
+    self.addEventListener('contextmenu', e => {
       e.preventDefault();
       let targetX = 0, targetY = 0;
       if ( e.target.matches && e.target.matches('webview') ) {

@@ -6,6 +6,14 @@
   module.exports = map_builder;
 
   function install() {
+    const dct = install_tracker();
+    
+    install_select_on_click(dct);
+
+    install_track_on_message(dct);
+  }
+
+  function install_tracker() {
     const dct = require('dosycanvasdomtracker');
     const sendMessage = (msg) => {
       comms.send('workspace', msg);
@@ -15,7 +23,11 @@
     dct.add_name('antis', { color: 'rgba(200,0,0,0.6)', style: 'outline'} );
     dct.add_name('antisets', { color: 'rgba(250,0,0,0.4)', style: 'fill'} );
     dct.add_name('sets', { color: 'rgba(100,0,200,0.4)', style: 'fill'} );
-    
+
+    return dct;
+  }
+
+  function install_select_on_click(dct) {
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {
         e.preventDefault();
@@ -41,6 +53,9 @@
         }
       }
     });
+  }
+
+  function install_track_on_message(dct) {
     comms.listen( (e,m) => {
       let color;
       if ( m.trackThis ) {

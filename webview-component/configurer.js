@@ -1,10 +1,10 @@
 "use strict";
 {
-  const WVC = {
+  const configurer = {
     install
   };
 
-  module.exports = WVC;
+  module.exports = configurer;
 
   function install(sel, { first_url: first_url = 'about:blank' } = {}) {
     if ( ! sel ) {

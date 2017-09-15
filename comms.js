@@ -1,6 +1,5 @@
 "use strict";
 {
-
   const comms = {
     install
   };

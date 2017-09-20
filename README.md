@@ -21,6 +21,8 @@ cp pa-os-server/dev .
 
 This ought to clone, install and start the dev environment.
 
+To close everything just ctrl-C. You should be running this from a terminal on a Debian machine with a GUI like X-windows. 
+
 ### Troubleshooting 
 
 You should also have `google-chrome-stable`, `neo4j`, `mysql`  and `mongod` installed as well. If you don't you can comment out those lines in the `./dev` that start those services. 

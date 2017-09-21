@@ -1,6 +1,6 @@
 {
   "name": "pa-os-desktopclient",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "PA",
   "main": "main.js",
   "watch": {

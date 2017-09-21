@@ -3,14 +3,16 @@
   const electron = require('electron')
   const app = electron.app
   const BrowserWindow = electron.BrowserWindow
+  const path = require('path');
+  const url = require('url');
+  const comms = require('./comms.js');
+  const appMenu = require('./appMenu.js');
 
   // enable our switches
+  app.setPath('userData', path.join( require('os').homedir(), 'chrome-working-directory'));
   app.commandLine.appendSwitch('remote-debugging-port','9222');
   app.commandLine.appendSwitch('touch-events', 'enabled');
 
-
-  const path = require('path');
-  const url = require('url');
 
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
@@ -65,9 +67,7 @@
       // when you should delete the corresponding element.
       mainWindow = null
     })
-    const appMenu = require('./appMenu.js');
     appMenu.install();
-    const comms = require('./comms.js');
     comms.install();
   }
 }

@@ -48,7 +48,7 @@
     // later we deal with interface workability under window resize
     const {height} = electron.screen.getPrimaryDisplay().size;
 
-    mainWindow = new BrowserWindow({x: 50, y: 50, width: 1400, height: 680, useContentSize: true, resizable: false});
+    mainWindow = new BrowserWindow({x: 50, y: 50, width: 1450, height: 680, useContentSize: true, resizable: false});
 
     // and load the index.html of the app.
     mainWindow.loadURL(url.format({
@@ -58,7 +58,7 @@
     }))
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools({mode:'undocked'});
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

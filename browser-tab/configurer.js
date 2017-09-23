@@ -16,8 +16,15 @@
     get_online(wv, first_url);
 
     setup_split_dct(sel);
+
+    insert_css(wv);
   }
 
+  function insert_css(wv) {
+    const path = require('path');
+    const fs = require('fs');
+    wv.addEventListener('dom-ready', () => wv.insertCSS(fs.readFileSync(path.join(__dirname, 'guest_context/style.css'), 'utf8')) );
+  }
   function get_online(wv, url) {
     wv.src="data:text/html,<div>Connecting to the internet...";
     if ( navigator.onLine ) {

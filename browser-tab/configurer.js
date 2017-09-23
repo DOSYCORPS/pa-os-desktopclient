@@ -23,8 +23,10 @@
   function insert_css(wv) {
     const path = require('path');
     const fs = require('fs');
-    wv.addEventListener('dom-ready', () => wv.insertCSS(fs.readFileSync(path.join(__dirname, 'guest_context/style.css'), 'utf8')) );
+    const css = fs.readFileSync(path.join(__dirname, 'guest_context/style.css'), 'utf8');
+    wv.addEventListener('page-title-updated', () => wv.insertCSS(css));
   }
+
   function get_online(wv, url) {
     wv.src="data:text/html,<div>Connecting to the internet...";
     if ( navigator.onLine ) {

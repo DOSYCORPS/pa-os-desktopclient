@@ -36,9 +36,9 @@
         if ( !!textSel ) {
           textSel.removeAllRanges();
         }
-        let type = 'positive';
+        let type = 'prop.locations';
         if ( e.alt || e.altKey ) {
-          type = 'negative';
+          type = 'prop.nlocations';
         }
         const message = {
           trackThis : true,

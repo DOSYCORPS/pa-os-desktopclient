@@ -76,8 +76,8 @@
   function handle( event, msg ) {
     if ( msg.trackThis ) {
       const {canonicalSel} = msg;
-      const newSel = document.querySelector(`input.new[name="${msg.type}"]`);
-      const save = document.querySelector(`input.new[name="${msg.type}"] ~ button[value="save"]`);
+      const newSel = frames.propview.document.querySelector(`input.new[name="${msg.type}"]`);
+      const save = frames.propview.document.querySelector(`input.new[name="${msg.type}"] ~ button[name="prop.savelocation"]`);
       newSel.value = canonicalSel;
       const queue = JSON.parse(localStorage.getItem('q'));
       queue.push({task: 'generalize'});

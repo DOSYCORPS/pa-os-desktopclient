@@ -44,11 +44,11 @@
     }
 
     function generalize() {
-      const generalize_btn = document.querySelector('#generalize');
+      const generalize_btn = frames.propview.document.querySelector('#generalize');
       setTimeout( () => {
         generalize_btn.click();
         setTimeout( () => {
-          const generalized = document.querySelector('#generalized');
+          const generalized = frames.propview.document.querySelector('#generalized');
           self.comms.send('browser-tab-guest', {
             trackThis: true,
             trackAll: true,
@@ -60,7 +60,7 @@
 
     function do_delete(e) {
       const sel = e.target.parentNode.querySelector('input[type="text"]').value;
-      const gsel = document.querySelector('#generalized').value;
+      const gsel = frames.propview.document.querySelector('#generalized').value;
       self.comms.send('browser-tab-guest', {
         untrackThis: true,
         canonicalSel: sel,

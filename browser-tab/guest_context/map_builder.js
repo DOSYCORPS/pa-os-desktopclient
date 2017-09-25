@@ -46,7 +46,7 @@
           canonicalSel : sg.get_canonical_sel( e.target )
         };
         comms.send('build', message);
-        if ( message.type == 'negative' ) {
+        if ( message.type == 'prop.nlocations' ) {
           dct.track(message.canonicalSel, 'antis');
         } else {
           dct.track(message.canonicalSel, 'singles');
@@ -60,13 +60,13 @@
       let color;
       if ( m.trackThis ) {
         if ( m.trackAll ) {
-          if ( m.type == 'negative' ) {
+          if ( m.type == 'prop.locations' ) {
             dct.track_all(m.canonicalSel, 'antisets');
           } else {
             dct.track_all(m.canonicalSel, 'sets');
           }
         } else {
-          if ( m.type == 'negative' ) {
+          if ( m.type == 'prop.nlocations' ) {
             dct.track(m.canonicalSel, 'antis');
           } else {
             dct.track(m.canonicalSel, 'singles');

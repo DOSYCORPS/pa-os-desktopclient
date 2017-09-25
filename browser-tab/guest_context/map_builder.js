@@ -31,6 +31,7 @@
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {
         // track instead of clicking
+        e.stopPropagation();
         e.preventDefault();
         const textSel = self.getSelection();
         if ( !!textSel ) {
@@ -52,7 +53,7 @@
           dct.track(message.canonicalSel, 'singles');
         }
       }
-    });
+    }, { capture: true } );
   }
 
   function install_track_on_message(dct) {

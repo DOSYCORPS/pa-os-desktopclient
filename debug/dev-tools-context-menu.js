@@ -4,12 +4,6 @@
  **/
 
 
-// TODO: target the right click to the actual webview ( if any ) and it's webcontents
-// that were the target of the right click
-// instead of just the main window's web contents
-// this makes developing our components inside webviews easier as we can inspect them 
-// with 1 click
-
 "use strict";
 {
   const {remote} = require('electron');
@@ -34,11 +28,9 @@
       }
     }
   });
-
   const dev_tools_context_menu = {
     install
   };
-
   let wvtarget = null;
   let rightClickPosition = null;
 

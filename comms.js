@@ -7,14 +7,14 @@
   module.exports = comms;
 
   function install() {
-    let ipc;
-    let name;
+    const isRenderer = process && process.type == 'renderer';
     const api = {
       get name() {
         return name;
       }
     };
-    const isRenderer = process && process.type == 'renderer';
+    let ipc;
+    let name;
 
     if ( isRenderer ) {
       ipc = require('electron').ipcRenderer;
@@ -50,11 +50,14 @@
       const listeners = [];
       const contexts = new Map();
       const reserved_channels = new Set( [ 'name', 'msg' ] );
+
       name = NAME;
+
       ipc.on('name', registerName);
       ipc.on('msg', switchMessage);
 
       Object.assign( api, { listen } );
+
       return;
 
       function listen( listener ) {
@@ -77,9 +80,6 @@
       function registerName( event, msg ) {
         const {sender:context} = event;
         const {name:requestedName} = msg;
-        if ( contexts.has(requestedName) ) {
-          //console.warn(`Re-registering existing name ${requestedName}` );
-        } 
         if ( requestedName == NAME ) {
           throw new TypeError( `Only main process can use the name 'main'` );
         }

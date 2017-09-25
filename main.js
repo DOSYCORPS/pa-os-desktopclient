@@ -13,9 +13,6 @@
   app.commandLine.appendSwitch('remote-debugging-port','9222');
   app.commandLine.appendSwitch('touch-events', 'enabled');
 
-
-  // Keep a global reference of the window object, if you don't, the window will
-  // be closed automatically when the JavaScript object is garbage collected.
   let mainWindow;
 
   Object.assign( global, { mainWindow } );
@@ -25,7 +22,6 @@
   // Some APIs can only be used after this event occurs.
   app.on('ready', createWindow);
 
-  // Quit when all windows are closed.
   app.on('window-all-closed', function () {
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
@@ -57,6 +53,9 @@
       slashes: true
     }))
 
+    appMenu.install();
+    comms.install();
+
     // Open the DevTools.
     mainWindow.webContents.openDevTools({mode:'undocked'});
 
@@ -66,9 +65,7 @@
       // in an array if your app supports multi windows, this is the time
       // when you should delete the corresponding element.
       mainWindow = null
-    })
-    appMenu.install();
-    comms.install();
+    });
   }
 }
 

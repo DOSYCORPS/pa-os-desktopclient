@@ -44,12 +44,14 @@
   }
 
   function unhover_el( e ) {
-    e.target.style.outline = "2px solid grey";
+    e.target.style.outline = "2px solid silver";
     setTimeout( () => {
-      const {hoversel} = hovering.get(e.target);
+      const {task,hoversel} = hovering.get(e.target);
       const unhoversel = sg.get_canonical_sel(e.target);
-      const hover_effect_removed_sel = sg.lcs_from_sel_pair(hoversel,unhoversel);
-      console.log(hover_effect_removed_sel);
+      const hover_effect_removed_sel = sg.sel_from_path(sg.lcs_from_sel_pair(hoversel,unhoversel));
+      if ( !! task ) {
+        task(hover_effect_removed_sel);
+      }
       hovering.delete(e.target);
       e.target.style.outline = "";
     }, 600 );
@@ -68,17 +70,20 @@
         if ( e.alt || e.altKey ) {
           type = 'prop.nlocations';
         }
-        const message = {
-          trackThis : true,
-          type,
-          canonicalSel : sg.get_canonical_sel( e.target )
-        };
-        comms.send('build', message);
-        if ( message.type == 'prop.nlocations' ) {
-          dct.track(message.canonicalSel, 'antis');
-        } else {
-          dct.track(message.canonicalSel, 'singles');
+        const task = (sel) => {
+          const message = {
+            trackThis : true,
+            type,
+            canonicalSel : sel 
+          };
+          comms.send('build', message);
+          if ( message.type == 'prop.nlocations' ) {
+            dct.track(message.canonicalSel, 'antis');
+          } else {
+            dct.track(message.canonicalSel, 'singles');
+          }
         }
+        Object.assign( hovering.get(e.target), { task } );
       }
     }, { capture: true } );
   }

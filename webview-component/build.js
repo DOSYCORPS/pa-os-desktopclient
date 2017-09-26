@@ -1,7 +1,5 @@
 "use strict";
 {
-  const comms = require('../comms.js');
-
   let loaded = false;
 
   self.addEventListener('load', install);
@@ -10,10 +8,6 @@
   function install() {
     if ( loaded ) return;
     console.log("Loading...");
-    const api = comms.install();
-    Object.assign( self, { comms: api } );
-    self.comms.nameSelf('build');
-    self.comms.listen( handle );
     run_task_queue();
     document.querySelector('#propview').addEventListener('load', run_task_queue);
     install_delete_handler();
@@ -35,11 +29,6 @@
       generalize_btn.click();
       setTimeout( () => {
         const generalized = frames.propview.document.querySelector('#generalized');
-        self.comms.send('browser-tab-guest', {
-          trackThis: true,
-          trackAll: true,
-          canonicalSel: generalized.value
-        });
       }, 50 );
     }, 50 );
   }
@@ -47,11 +36,6 @@
   function do_delete(e) {
     const sel = e.target.parentNode.querySelector('input[type="text"]').value;
     const gsel = frames.propview.document.querySelector('#generalized').value;
-    self.comms.send('browser-tab-guest', {
-      untrackThis: true,
-      canonicalSel: sel,
-      generalizedSel: gsel
-    });
     const queue = JSON.parse(localStorage.getItem('q'));
     queue.push({task: 'generalize'});
     localStorage.setItem('q',JSON.stringify(queue));

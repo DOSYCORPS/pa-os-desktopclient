@@ -79,6 +79,7 @@
   }
 
   function handle( event, msg ) {
+    console.log("msg", msg);
     if ( msg.trackThis ) {
       const {canonicalSel} = msg;
       const newSel = frames.propview.document.querySelector(`input.new[name="${msg.type}"]`);
@@ -88,6 +89,9 @@
       queue.push({task: 'generalize'});
       localStorage.setItem('q',JSON.stringify(queue));
       save.click();
+    } else if ( msg.size ) {
+      const sizeEl = frames.propview.document.querySelector(`input[name="prop.size"]`);
+      sizeEl.value = msg.size;
     }
   }
 }

@@ -1,5 +1,6 @@
 "use strict";
 {
+  // FIXME: this code here is a nightmare. FUCKING FIX IT ALL
   const sg = require('selector-generalization');
   const map_builder = { install };
   const hovering = new Map();
@@ -39,22 +40,30 @@
   // since what if the page creates a new DOM element and replaces the previous one with it
   // then maybe our el will not come out
   function hover_el( e ) {
-    hovering.set(e.target, { hoversel: sg.get_canonical_sel(e.target) }); 
-    [...hovering.keys()].forEach( el => el.style.outline = "2px solid green" );
+    if ( e.target.style ) {
+      hovering.set(e.target, { hoversel: sg.get_canonical_sel(e.target) }); 
+      [...hovering.keys()].forEach( el => el.style.outline = "2px solid green" );
+    }
   }
 
   function unhover_el( e ) {
-    e.target.style.outline = "2px solid silver";
-    setTimeout( () => {
-      const {task,hoversel} = hovering.get(e.target);
-      const unhoversel = sg.get_canonical_sel(e.target);
-      const hover_effect_removed_sel = sg.sel_from_path(sg.lcs_from_sel_pair(hoversel,unhoversel));
-      if ( !! task ) {
-        task(hover_effect_removed_sel);
+    if ( !!e.target.style ) {
+      const hoverinfo = hovering.get(e.target);
+      if ( !!hoverinfo ) {
+        e.target.style.outline = "2px solid silver";
+        setTimeout( () => {
+          const task = hoverinfo.task;
+          const hoversel = hoverinfo.hoversel;
+          const unhoversel = sg.get_canonical_sel(e.target);
+          const hover_effect_removed_sel = sg.sel_from_path(sg.lcs_from_sel_pair(hoversel,unhoversel));
+          if ( !! task ) {
+            task(hover_effect_removed_sel);
+          }
+          hovering.delete(e.target);
+          e.target.style.outline = "";
+        }, 600 );
       }
-      hovering.delete(e.target);
-      e.target.style.outline = "";
-    }, 600 );
+    }
   }
   function install_select_on_click(dct) {
     document.addEventListener('click', e => {
@@ -70,6 +79,12 @@
         if ( e.alt || e.altKey ) {
           type = 'prop.nlocations';
         }
+        let hoverinfo = hovering.get(e.target);
+        if ( ! hoverinfo ) {
+          hoverinfo = { hoversel: sg.get_canonical_sel(e.target) }; 
+          hovering.set(e.target,hoverinfo);
+        }
+
         const task = (sel) => {
           const message = {
             trackThis : true,
@@ -83,7 +98,7 @@
             dct.track(message.canonicalSel, 'singles');
           }
         }
-        Object.assign( hovering.get(e.target), { task } );
+        Object.assign( hoverinfo, { task } );
       }
     }, { capture: true } );
   }
@@ -91,12 +106,17 @@
   function install_track_on_message(dct) {
     comms.listen( (e,m) => {
       let color;
+      console.log("msg", m);
       if ( m.trackThis ) {
         if ( m.trackAll ) {
           if ( m.type == 'prop.locations' ) {
             dct.track_all(m.canonicalSel, 'antisets');
+            const size = document.querySelectorAll(m.canonicalSel).length;
+            comms.send('build', { generalizedSel: m.canonicalSel, size } );
           } else {
             dct.track_all(m.canonicalSel, 'sets');
+            const size = document.querySelectorAll(m.canonicalSel).length;
+            comms.send('build', { generalizedSel: m.canonicalSel, size } );
           }
         } else {
           if ( m.type == 'prop.nlocations' ) {

@@ -2,7 +2,7 @@
 {
   const sg = require('selector-generalization');
   const map_builder = { install };
-  const hovering = new Set();
+  const hovering = new Map();
 
   module.exports = map_builder;
 
@@ -35,15 +35,24 @@
     document.addEventListener('mouseout', e => unhover_el(e), { capture: true } );
   }
   
+  // FIXME: we also need a sweep at interval to remove everything 
+  // since what if the page creates a new DOM element and replaces the previous one with it
+  // then maybe our el will not come out
   function hover_el( e ) {
-    hovering.add(e.target); 
-    [...hovering].forEach( el => el.style.outline = "2px solid green" );
+    hovering.set(e.target, { hoversel: sg.get_canonical_sel(e.target) }); 
+    [...hovering.keys()].forEach( el => el.style.outline = "2px solid green" );
   }
 
   function unhover_el( e ) {
-    hovering.delete(e.target);
     e.target.style.outline = "2px solid grey";
-    setTimeout( () => e.target.style.outline = "", 200 );
+    setTimeout( () => {
+      const {hoversel} = hovering.get(e.target);
+      const unhoversel = sg.get_canonical_sel(e.target);
+      const hover_effect_removed_sel = sg.lcs_from_sel_pair(hoversel,unhoversel);
+      console.log(hover_effect_removed_sel);
+      hovering.delete(e.target);
+      e.target.style.outline = "";
+    }, 600 );
   }
   function install_select_on_click(dct) {
     document.addEventListener('click', e => {

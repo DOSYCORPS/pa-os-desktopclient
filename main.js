@@ -5,7 +5,6 @@
   const BrowserWindow = electron.BrowserWindow
   const path = require('path');
   const url = require('url');
-  const comms = require('./comms.js');
   const appMenu = require('./appMenu.js');
 
   // enable our switches
@@ -54,7 +53,6 @@
     }))
 
     appMenu.install();
-    comms.install();
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools({mode:'undocked'});

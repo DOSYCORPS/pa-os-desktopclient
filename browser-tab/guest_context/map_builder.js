@@ -42,7 +42,6 @@
   function hover_el( e ) {
     if ( e.target.style ) {
       hovering.set(e.target, { hoversel: sg.get_canonical_sel(e.target) }); 
-      [...hovering.keys()].forEach( el => el.style.outline = "2px solid green" );
     }
   }
 
@@ -50,7 +49,6 @@
     if ( !!e.target.style ) {
       const hoverinfo = hovering.get(e.target);
       if ( !!hoverinfo ) {
-        e.target.style.outline = "2px solid silver";
         setTimeout( () => {
           const task = hoverinfo.task;
           const hoversel = hoverinfo.hoversel;
@@ -60,7 +58,6 @@
             task(hover_effect_removed_sel);
           }
           hovering.delete(e.target);
-          e.target.style.outline = "";
         }, 600 );
       }
     }
@@ -106,7 +103,6 @@
   function install_track_on_message(dct) {
     comms.listen( (e,m) => {
       let color;
-      console.log("msg", m);
       if ( m.trackThis ) {
         if ( m.trackAll ) {
           if ( m.type == 'prop.locations' ) {

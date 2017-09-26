@@ -6,6 +6,7 @@
   const path = require('path');
   const url = require('url');
   const appMenu = require('./appMenu.js');
+  const orchestrator = require('./orchestrator.js');
 
   // enable our switches
   app.setPath('userData', path.join( require('os').homedir(), 'chrome-working-directory'));
@@ -53,6 +54,7 @@
     }))
 
     appMenu.install();
+    orchestrator.install();
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools({mode:'undocked'});

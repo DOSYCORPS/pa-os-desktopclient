@@ -2,6 +2,7 @@
 {
   const sg = require('selector-generalization');
   const map_builder = { install };
+  const hovering = new Set();
 
   module.exports = map_builder;
 
@@ -9,6 +10,8 @@
     const dct = install_tracker();
     
     install_select_on_click(dct);
+
+    install_distinguish_hover();
 
     install_track_on_message(dct);
   }
@@ -27,6 +30,21 @@
     return dct;
   }
 
+  function install_distinguish_hover() {
+    document.addEventListener('mouseover', e => hover_el(e), { capture: true } );
+    document.addEventListener('mouseout', e => unhover_el(e), { capture: true } );
+  }
+  
+  function hover_el( e ) {
+    hovering.add(e.target); 
+    [...hovering].forEach( el => el.style.outline = "2px solid green" );
+  }
+
+  function unhover_el( e ) {
+    hovering.delete(e.target);
+    e.target.style.outline = "2px solid grey";
+    setTimeout( () => e.target.style.outline = "", 200 );
+  }
   function install_select_on_click(dct) {
     document.addEventListener('click', e => {
       if ( e.shift || e.shiftKey ) {

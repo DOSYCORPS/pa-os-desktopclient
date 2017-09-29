@@ -2,7 +2,7 @@
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: silver;
+  background: transparent;
   border-radius: 3px;
 }
 

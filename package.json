@@ -28,7 +28,7 @@
   "author": "dosy",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "^1.7.8"
+    "electron": "^1.8.1"
   },
   "bugs": {
     "url": "https://github.com/dosy-corp/pa-os-desktopclient/issues"
@@ -36,7 +36,7 @@
   "homepage": "https://github.com/dosy-corp/pa-os-desktopclient#readme",
   "dependencies": {
     "dosycanvasdomtracker": "^1.2.3",
-    "dosyhil": "^1.4.0",
+    "dosyhil": "^1.5.0",
     "dosylogo": "^1.0.2",
     "dosylook": "^1.1.4",
     "npm-watch": "^0.2.0",

@@ -30,9 +30,10 @@
     max-height: 100%;
     overflow-y: auto;
     padding: 0;
-    width: 330px;
+    width: 280px;
     flex-grow: 0;
     outline: none;
+    overflow: hidden;
   }
 
 

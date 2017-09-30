@@ -17,7 +17,7 @@
 
     setup_split_dct(sel);
 
-    insert_css(wv);
+    //insert_css(wv);
   }
 
   function insert_css(wv) {

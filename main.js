@@ -44,7 +44,7 @@
     // later we deal with interface workability under window resize
     const {height} = electron.screen.getPrimaryDisplay().size;
 
-    mainWindow = new BrowserWindow({x: 50, y: 50, width: 1024+340, height: 650, useContentSize: true, resizable: true});
+    mainWindow = new BrowserWindow({x: 50, y: 50, width: 1120+280, height: 650, useContentSize: true, resizable: true});
 
     // and load the index.html of the app.
     mainWindow.loadURL(url.format({
